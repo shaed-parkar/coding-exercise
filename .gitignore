@@ -342,3 +342,4 @@ ASALocalRun/
 values.dev.yaml
 secrets.dev.yaml
 /TestApi/TestApi.UnitTests/StrykerOutput
+.DS_Store

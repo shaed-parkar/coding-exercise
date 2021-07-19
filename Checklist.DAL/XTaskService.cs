@@ -27,7 +27,7 @@ namespace Checklist.DAL
         {
             _tasks = new List<XTask>()
             {
-                new XTask(1, "Go to the gym"),
+                new XTask(1, "Go to the gym", true),
                 new XTask(2, "Shower"),
                 new XTask(3, "Eat breakfast"),
                 new XTask(4, "Call doctor")

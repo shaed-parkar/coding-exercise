@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Checklist.Controllers
 {
     [Produces("application/json")]
-    [Route("tasks")]
+    [Route("api/tasks")]
     [ApiController]
     public class XTaskController : ControllerBase
     {

@@ -13,11 +13,12 @@ namespace Checklist.ApiTests
 {
     public class XTaskControllerTests : ControllerTestsBase
     {
+        private string BaseRoutePath => "api/tasks";
+        
         [Test]
         public async Task should_get_all_tasks()
         {
-            var uri = "tasks";
-            var httpResponse = await SendGetRequestAsync(uri);
+            var httpResponse = await SendGetRequestAsync(BaseRoutePath);
             
             httpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             
@@ -30,7 +31,7 @@ namespace Checklist.ApiTests
         public async Task should_complete_task_by_id()
         {
             var taskId = 1;
-            var uri = $"tasks/{taskId}/complete";
+            var uri = $"{BaseRoutePath}/{taskId}/complete";
             var httpResponse = await SendPostRequestAsync(uri, null);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
             httpResponse.IsSuccessStatusCode.Should().BeTrue();
@@ -39,7 +40,6 @@ namespace Checklist.ApiTests
         [Test]
         public async Task should_add_new_task()
         {
-            var uri = "tasks";
             var createUserRequest = new NewTaskRequest
             {
                Description = "Creating a task via API test"
@@ -47,7 +47,7 @@ namespace Checklist.ApiTests
             var createUserHttpRequest = new StringContent(
                 JsonConvert.SerializeObject(createUserRequest),
                 Encoding.UTF8, "application/json");
-            var httpResponse = await SendPostRequestAsync(uri, createUserHttpRequest);
+            var httpResponse = await SendPostRequestAsync(BaseRoutePath, createUserHttpRequest);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             httpResponse.IsSuccessStatusCode.Should().BeTrue();
             

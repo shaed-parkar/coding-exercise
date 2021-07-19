@@ -1,0 +1,9 @@
+<h1>To Do List</h1>
+
+<div class="container" *ngIf="allTasks$ | async as tasks">
+  <div class="row pb-4" *ngFor="let task of tasks" >
+    <div class="col-4"> <input [disabled]="task.completed" type="checkbox" [checked]="task.completed" id="{{task.id}}"> </div>
+    <div class="col-4" [ngClass]="{'completed-task': task.completed}"> {{ task.description }} </div>
+    <div class="col-4"> <button [disabled]="task.completed" class="btn btn-danger" (click)="deleteTask(task.id)">Remove</button> </div>
+  </div>
+</div>
