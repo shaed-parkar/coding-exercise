@@ -1,0 +1,14 @@
+<div class="input-group mb-3" [formGroup]="form">
+  <textarea
+    class="form-control"
+    style="resize: none;"
+    rows="3"
+    placeholder="New Task..."
+    aria-label="New task placeholder description"
+    aria-describedby="basic-addon2"
+    formControlName="description"
+  ></textarea>
+  <div class="input-group-append">
+    <button class="btn btn-warning" (click)="addNewTask()" type="button">Add Task</button>
+  </div>
+</div>

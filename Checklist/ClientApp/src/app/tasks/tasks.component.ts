@@ -16,14 +16,6 @@ export class TasksComponent implements OnInit {
     this.allTasks$ = this.taskService.allTasks$;
   }
 
-  addNewTask(description: string) {
-    console.log('adding a new task');
-    // TODO: need to update list on successful add
-    this.taskService.addNewTask(description).subscribe(task => {
-      console.log(task);
-    });
-  }
-
   completeTask(taskId: number) {
     console.log('completing task: ' + taskId);
     // TODO: need to update list on successful complete

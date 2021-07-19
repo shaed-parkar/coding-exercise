@@ -1,5 +1,7 @@
 <h1>To Do List</h1>
 
+<app-create-task></app-create-task>
+
 <div class="container" *ngIf="allTasks$ | async as tasks">
   <div class="row pb-4" *ngFor="let task of tasks" >
     <div class="col-4"> <input [disabled]="task.completed" type="checkbox" [checked]="task.completed" id="{{task.id}}" (change)="completeTask(task.id)"> </div>
