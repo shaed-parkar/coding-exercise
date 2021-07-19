@@ -17,16 +17,16 @@ export class TasksService {
   );
 
   deleteTask(taskId: number) {
-    return this.http.delete(`${this.tasksUrl}/delete/${taskId}`);
+    return this.http.delete(`${this.tasksUrl}/${taskId}`);
   }
 
   completeTask(taskId: number) {
-    return this.http.post(`${this.tasksUrl}/complete/${taskId}`, null);
+    return this.http.post(`${this.tasksUrl}/${taskId}/complete`, null);
   }
 
   addNewTask(description: string) {
     const body = {description};
-    this.http.post<Task>(this.tasksUrl, body).pipe(
+    return this.http.post<Task>(this.tasksUrl, body).pipe(
       catchError(this.handleError)
     );
   }

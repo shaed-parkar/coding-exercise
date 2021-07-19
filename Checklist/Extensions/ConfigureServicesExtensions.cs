@@ -7,7 +7,7 @@ namespace Checklist.Extensions
     {
         public static IServiceCollection AddCustomTypes(this IServiceCollection services)
         {
-            services.AddScoped<IXTaskManager, XTaskService>();
+            services.AddSingleton<IXTaskManager, XTaskService>();
 
             return services;
         }

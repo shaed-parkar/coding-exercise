@@ -17,15 +17,25 @@ export class TasksComponent implements OnInit {
   }
 
   addNewTask(description: string) {
-    this.taskService.addNewTask(description)
+    console.log('adding a new task');
+    // TODO: need to update list on successful add
+    this.taskService.addNewTask(description).subscribe(task => {
+      console.log(task);
+    });
   }
 
   completeTask(taskId: number) {
-    this.taskService.completeTask(taskId);
+    console.log('completing task: ' + taskId);
+    // TODO: need to update list on successful complete
+    this.taskService.completeTask(taskId)
+    .subscribe(() => console.log('Completed task: ' + taskId));;
   }
 
   deleteTask(taskId: number) {
+    console.log('deleting task: ' + taskId);
+    // TODO: need to update list on successful removal
     this.taskService.deleteTask(taskId)
+    .subscribe(() => console.log('Deleted task: ' + taskId));
   }
 
 }
